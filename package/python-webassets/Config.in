@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PYTHON_WEBASSETS
+	bool "python-webassets"
+	help
+	  Media asset management for Python, with glue code for various web frameworks
+
+	  https://github.com/miracle2k/webassets/
