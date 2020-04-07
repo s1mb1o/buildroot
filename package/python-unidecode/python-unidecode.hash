@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/project/Unidecode
+md5	e3497dde89fe129d709d9e6c6824aaa1  Unidecode-1.1.1.tar.gz
+sha256	2b6aab710c2a1647e928e36d69c21e76b453cd455f4e2621000e54b2a9b8cce8  Unidecode-1.1.1.tar.gz
+# Locally computed sha256 checksums
+sha256	7c0d136ee0585389adf2d25671bb99687a1f75929f465b7f16ee3f01da37255e  LICENSE.txt
