@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_FROZENDICT
+	bool "python-frozendict"
+	help
+	  Python HTTP library with thread-safe connection pooling, file
+	  post support, sanity friendly, and more.
+
+	  https://github.com/slezica/python-frozendict
