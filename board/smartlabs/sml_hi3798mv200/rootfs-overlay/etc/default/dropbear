@@ -1,0 +1,1 @@
+DROPBEAR_ARGS="-r /flash/smartlabs/persistent/.ssh/id_rsa"
