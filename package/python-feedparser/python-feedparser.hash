@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/project/feedparser/
+md5	d552f7a2a55e8e33b2a3fe1082505b42  feedparser-5.2.1.tar.gz
+sha256	bd030652c2d08532c034c27fcd7c85868e7fa3cb2b17f230a44a6bbc92519bf9  feedparser-5.2.1.tar.gz
+# Locally computed sha256 checksums
+sha256	7c0d136ee0585389adf2d25671bb99687a1f75929f465b7f16ee3f01da37255e  LICENSE.txt
