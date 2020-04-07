@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_REGEX
+	bool "python-regex"
+	help
+      This regex implementation is backwards-compatible with
+      the standard 're' module, but offers additional functionality.
+
+	  https://bitbucket.org/mrabarnett/mrab-regex
