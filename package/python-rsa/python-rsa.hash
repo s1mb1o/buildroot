@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/project/rsa
+md5	9f9af433a16868b616fc609215e91ddb  rsa-4.0.tar.gz
+sha256	1a836406405730121ae9823e19c6e806c62bbad73f890574fff50efa4122c487  rsa-4.0.tar.gz
+# Locally computed sha256 checksums
+sha256	7c0d136ee0585389adf2d25671bb99687a1f75929f465b7f16ee3f01da37255e  LICENSE.txt
