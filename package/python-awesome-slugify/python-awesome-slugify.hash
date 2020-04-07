@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/project/awesome-slugify
+md5	58b9b751b4670e3c221f008dd61348a8  awesome-slugify-1.6.5.tar.gz
+sha256	bbdec3fa2187917473a2efad092b57f7125a55f841a7cf6a1773178d32ccfd71  awesome-slugify-1.6.5.tar.gz
+# Locally computed sha256 checksums
+sha256	7c0d136ee0585389adf2d25671bb99687a1f75929f465b7f16ee3f01da37255e  LICENSE.txt
