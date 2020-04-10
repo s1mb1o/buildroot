@@ -1,0 +1,1 @@
+# user 1000 user 1000 =f2line.. /home/user /bin/sh dialout,tty,netdev Main user

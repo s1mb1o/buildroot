@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# Mount persistentfs....
+#
+
+PERSISTENT_DIR=/mnt/persistent
+
+do_start()
+{
+	if ! mount -o bind /flash/smartlabs/persistent "$PERSISTENT_DIR" ; then
+		return 1
+	fi
+
+	if [ ! -d "$PERSISTENT_DIR/etc" ]; then
+		mkdir -p "$PERSISTENT_DIR/etc"
+	fi
+
+	# WiFi
+	if [ ! -f "$PERSISTENT_DIR/etc/wpa_supplicant.conf" ]; then
+		touch $PERSISTENT_DIR/etc/wpa_supplicant.conf
+	fi
+
+	# Copy python3.8
+	mkdir -p "$PERSISTENT_DIR/usr/bin" "$PERSISTENT_DIR/usr/lib"
+	if [ ! -d "$PERSISTENT_DIR/usr/lib/python3.8" ]; then
+		cp -a /usr/lib/python3.8 $PERSISTENT_DIR/usr/lib
+		cp -a /usr/bin/pip* /usr/bin/py* /usr/bin/*.py $PERSISTENT_DIR/usr/bin
+	fi
+
+	if [ ! -d "$PERSISTENT_DIR/root" ]; then
+		mkdir -p "$PERSISTENT_DIR/root"
+	fi
+	mount -o bind /mnt/persistent/root /root
+
+#	if [ ! -d "$PERSISTENT_DIR/home/user" ]; then
+#		mkdir -p "$PERSISTENT_DIR/home/user"
+#		chown user:user "$PERSISTENT_DIR/home/user"
+#	fi
+#	mount -o bind /mnt/persistent/home/user /home/user
+
+	return 0
+}
+
+case "$1" in
+  start)
+	printf "Mounting persistentfs: "
+	do_start
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	printf "Unmounting persistentfs: "
+	umount /mnt/persistent
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
