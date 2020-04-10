@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# Start octoprint ....
+#
+
+export PYTHONHOME=/mnt/persistent/usr
+
+OCTOPRINT=$PYTHONHOME/bin/octoprint
+
+do_start()
+{
+	$OCTOPRINT daemon --iknowwhatimdoing start
+	return 0
+}
+
+do_stop()
+{
+	$OCTOPRINT daemon stop
+	return 0
+}
+
+do_status()
+{
+	$OCTOPRINT daemon status
+}
+
+do_restart()
+{
+	$OCTOPRINT daemon restart
+}
+
+case "$1" in
+  start)
+	printf "Starting octoprint: "
+	do_start && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	printf "Stopping octoprint: "
+	do_stop && echo "OK" || echo "FAIL"
+	;;
+  status)
+  	printf "Status: "
+  	do_status
+  	;;
+  restart|reload)
+	do_restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart|status}"
+	exit 1
+	;;
+esac
+
+exit $?
