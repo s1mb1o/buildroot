@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# Load kmodules....
+#
+
+do_start()
+{
+	insmod /lib/modules/cfg80211.ko || return 1
+	insmod /lib/modules/rtl8822cs.ko || return 1
+	return 0
+}
+
+do_stop()
+{
+	rmmod rtl8822cs
+	rmmod cfg80211
+	return 0
+}
+
+case "$1" in
+  start)
+	printf "Loading modules: "
+	do_start && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	printf "Unloading modules: "
+	do_stop && echo "OK" || echo "FAIL"
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
